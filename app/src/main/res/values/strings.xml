@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">QQ表情定时器</string>
+    <string name="xposed_description">QQ 9.3.70 专用：在设定时间向置顶/指定好友自动发送自定义表情（作用域：com.tencent.mobileqq）</string>
+</resources>

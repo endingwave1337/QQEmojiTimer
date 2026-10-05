@@ -1,0 +1,24 @@
+# Gradle / Android
+.gradle/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# 本机配置
+local.properties
+gradle/wrapper/gradle-wrapper.jar
+*.jks
+*.keystore
+
+# 产物
+*.apk
+*.aab
+*.ap_
+*.dex

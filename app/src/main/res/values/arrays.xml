@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 默认作用域：QQ。安装后仍需在 LSPosed 管理器中确认勾选 -->
+    <string-array name="xposed_scope">
+        <item>com.tencent.mobileqq</item>
+    </string-array>
+</resources>

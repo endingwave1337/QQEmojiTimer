@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.endingwave.qqemoji'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.endingwave.qqemoji"
+        minSdk 24
+        targetSdk 34
+        versionCode 10
+        versionName "release-1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 用 debug 签名：能和之前装的调试包互相覆盖安装（不用卸载）
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        // JDK 25 下 lint 分析器会崩（> 25.0.2），release 不走 lint
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    // 只编译期使用，运行时由 LSPosed 提供（禁止打包进 APK）
+    compileOnly 'de.robv.android.xposed:api:82'
+}

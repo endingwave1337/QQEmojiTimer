@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:text="作用域必须勾选 com.tencent.mobileqq（QQ 9.3.70）；改完配置后请重启 QQ 进程。"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cb_enabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="启用定时发送" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="目标 QQ 号（英文逗号分隔，支持多行）" />
+
+        <EditText
+            android:id="@+id/et_targets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="10001,10002"
+            android:inputType="textMultiLine" />
+
+        <CheckBox
+            android:id="@+id/cb_all_pinned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送给所有置顶会话（自动读取置顶列表）" />
+
+        <CheckBox
+            android:id="@+id/cb_pinned_only"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="仅当目标会话处于置顶状态时才发送" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发送时间（24 小时制，可填多个，用英文/中文逗号分隔）" />
+
+        <EditText
+            android:id="@+id/et_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="09:30,12:00,21:30"
+            android:inputType="text" />
+
+        <CheckBox
+            android:id="@+id/cb_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="每天重复" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="发送内容类型" />
+
+        <RadioGroup
+            android:id="@+id/rg_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="文字表情（QQ 表情代码如 [微笑]、[doge]，或 emoji）" />
+
+            <RadioButton
+                android:id="@+id/rb_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="本地图片表情包（按图片消息发送本地文件）" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_payload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="[微笑]"
+            android:inputType="textMultiLine" />
+
+        <RadioGroup
+            android:id="@+id/rg_image_src"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_src_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="单张图片" />
+
+            <RadioButton
+                android:id="@+id/rb_src_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文件夹随机（每次从文件夹里随机挑一张）" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="图片路径，如 /sdcard/QQEmojiTimer/sticker.png"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/et_folder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="表情包文件夹，如 /sdcard/DCIM/stickers"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_funbox_dir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="一键填入 FunBox 表情目录（.fun）" />
+
+        <CheckBox
+            android:id="@+id/cb_recursive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="文件夹包含子目录" />
+
+        <CheckBox
+            android:id="@+id/cb_as_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作为表情图发送（picSubType=1，外显 [动画表情] 而不是 [图片]）" />
+
+        <EditText
+            android:id="@+id/et_fallback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="发送失败时的文字兜底（可留空）"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="发送方式" />
+
+        <RadioGroup
+            android:id="@+id/rg_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_kernel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="内核直发（NT Kernel，无需切前台，推荐）" />
+
+            <RadioButton
+                android:id="@+id/rb_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="界面模拟（打开聊天窗口填入并点发送）" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="界面模式等待毫秒数（默认 1500）"
+            android:inputType="number" />
+
+        <CheckBox
+            android:id="@+id/cb_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="界面模式发送后关闭聊天窗口" />
+
+        <CheckBox
+            android:id="@+id/cb_local_echo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="本地留痕（先 addSendMsg，自己聊天窗口能看到发送中的这条消息）" />
+
+        <CheckBox
+            android:id="@+id/cb_ui_fallback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="内核发送失败时自动改用界面模式重试" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="保存并设置定时" />
+
+        <Button
+            android:id="@+id/btn_exact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="申请精确闹钟权限" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="立即发送一次" />
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:textStyle="bold"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="" />
+    </LinearLayout>
+</ScrollView>
